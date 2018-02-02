@@ -1,0 +1,16 @@
+[core]
+    editor = vim
+[alias]
+    co = checkout
+    ci = commit
+    cm = commit -m
+    st = status
+    br = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[color]
+    ui = auto
+[credential]
+    helper = cache --timeout=10800
+[user]
+    name = Nick Pierson
+    email = nick@nickpierson.name
