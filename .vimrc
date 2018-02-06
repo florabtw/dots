@@ -16,6 +16,7 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'prettier/vim-prettier'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'scrooloose/nerdtree'
+Plugin 'ntpeters/vim-better-whitespace'
 
 call vundle#end()
 filetype plugin indent on
@@ -69,11 +70,7 @@ set autoindent
 set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 " Wrapping and tabs.
-set tw=160 ts=4 sw=4 sta et sts=4 ai
-
-" Highlight end of line whitespace.
-highlight WhitespaceEOL ctermbg=240 guibg=red
-match WhitespaceEOL /\s\+$/
+set tw=80 ts=4 sw=4 sta et sts=4 ai fo+=t
 
 " Line numbers
 set number
@@ -90,6 +87,7 @@ syntax on
 
 " Color column at 81
 set colorcolumn=81
+au BufNewFile,BufRead *.scala set colorcolumn=130
 
 " set color scheme to solarized
 syntax on
@@ -102,7 +100,7 @@ colorscheme solarized
 au FileType * highlight WhitespaceEOL ctermbg=240 guibg=red
 
 " md means markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+au BufNewFile,BufReadPost *.md set filetype=markdown
 
 " JSX highlighting
 let g:jsx_ext_required=0
