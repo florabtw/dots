@@ -1,26 +1,27 @@
-" Vundle
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Vim Plug
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'godlygeek/tabular'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-sleuth'
-Plugin 'prettier/vim-prettier'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ntpeters/vim-better-whitespace'
+" Auto install if missing
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-call vundle#end()
-filetype plugin indent on
-" End Vundle
+call plug#begin('~/.vim/bundle')
+Plug 'junegunn/vim-plug'
+Plug 'mattn/emmet-vim'
+Plug 'godlygeek/tabular'
+Plug 'Chiel92/vim-autoformat'
+Plug 'altercation/vim-colors-solarized'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-sleuth'
+Plug 'prettier/vim-prettier'
+Plug 'derekwyatt/vim-scala'
+Plug 'scrooloose/nerdtree'
+Plug 'ntpeters/vim-better-whitespace'
+call plug#end()
 
 " Remap movement for Colemak
 noremap n j
