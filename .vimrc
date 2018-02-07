@@ -21,6 +21,8 @@ Plug 'prettier/vim-prettier'
 Plug 'derekwyatt/vim-scala'
 Plug 'scrooloose/nerdtree'
 Plug 'ntpeters/vim-better-whitespace'
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Remap movement for Colemak
@@ -112,3 +114,6 @@ set splitright
 
 " NERDTree Remaps
 let NERDTreeMapOpenExpl='\t'
+
+" FZF Remaps
+nnoremap <silent> <c-p> :Files<CR>
