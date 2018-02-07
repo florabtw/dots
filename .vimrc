@@ -23,6 +23,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'ntpeters/vim-better-whitespace'
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 " Remap movement for Colemak
@@ -117,3 +118,6 @@ let NERDTreeMapOpenExpl='\t'
 
 " FZF Remaps
 nnoremap <silent> <c-p> :Files<CR>
+
+" Gutentags
+let g:gutentags_cache_dir="~/.tags"
