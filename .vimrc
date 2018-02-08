@@ -121,3 +121,6 @@ nnoremap <silent> <c-p> :Files<CR>
 
 " Gutentags
 let g:gutentags_cache_dir="~/.tags"
+
+" Remap jump pop stack
+nnoremap <c-k>  <Tab>
