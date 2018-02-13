@@ -24,25 +24,8 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'mileszs/ack.vim'
 call plug#end()
-
-" Remap movement for Colemak
-noremap n j
-noremap e k
-noremap i l
-noremap k n
-noremap s i
-noremap j e
-
-" Remap splits for Colemak / Ease of Use
-noremap <C-H> <C-W><C-H>
-noremap <C-N> <C-W><C-J>
-noremap <C-E> <C-W><C-K>
-noremap <C-I> <C-W><C-L>
-
-" Remap l as end of 'line' key
-nnoremap l $
-nnoremap <C-l> J
 
 " Destroy arrow keys in insert mode
 inoremap <Up> <Nop>
@@ -57,6 +40,12 @@ noremap <Left> <<
 noremap <Right> >>
 vmap <Left> <gv
 vmap <Right> >gv
+
+" Remap splits for ease of use
+noremap <C-H> <C-W><C-H>
+noremap <C-J> <C-W><C-J>
+noremap <C-K> <C-W><C-K>
+noremap <C-L> <C-W><C-L>
 
 " Brace completion
 inoremap {<CR> {<CR>}<Esc>ko
@@ -121,6 +110,3 @@ nnoremap <silent> <c-p> :Files<CR>
 
 " Gutentags
 let g:gutentags_cache_dir="~/.tags"
-
-" Remap jump pop stack
-nnoremap <c-k>  <Tab>
