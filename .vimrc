@@ -21,7 +21,7 @@ Plug 'prettier/vim-prettier'
 Plug 'derekwyatt/vim-scala'
 Plug 'scrooloose/nerdtree'
 Plug 'ntpeters/vim-better-whitespace'
-Plug '~/.fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mileszs/ack.vim'
