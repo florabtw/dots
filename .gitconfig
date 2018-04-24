@@ -1,5 +1,6 @@
 [core]
     editor = vim
+    excludesfile = /home/nick/.gitignore
 [alias]
     co = checkout
     ci = commit
