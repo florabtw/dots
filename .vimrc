@@ -24,7 +24,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'mileszs/ack.vim'
 call plug#end()
 
 " Destroy arrow keys in insert mode
