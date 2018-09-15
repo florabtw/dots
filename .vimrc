@@ -24,6 +24,12 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'digitaltoad/vim-pug'
+Plug 'townk/vim-autoclose'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-commentary'
+Plug 'ervandew/supertab'
+Plug 'mileszs/ack.vim'
 call plug#end()
 
 " Destroy arrow keys in insert mode
@@ -45,12 +51,6 @@ noremap <C-H> <C-W><C-H>
 noremap <C-J> <C-W><C-J>
 noremap <C-K> <C-W><C-K>
 noremap <C-L> <C-W><C-L>
-
-" Brace completion
-inoremap {<CR> {<CR>}<Esc>ko
-
-" Paren + Brace completion
-inoremap ({<CR> ({<CR>});<Esc>ko
 
 " Make backspace work
 set backspace=2
