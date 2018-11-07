@@ -30,6 +30,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'ervandew/supertab'
 Plug 'mileszs/ack.vim'
+Plug 'cespare/vim-toml'
 call plug#end()
 
 " Destroy arrow keys in insert mode
