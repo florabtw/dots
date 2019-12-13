@@ -15,3 +15,5 @@
 [user]
     name = Nick Pierson
     email = me@nick.exposed
+[push]
+    default = current
