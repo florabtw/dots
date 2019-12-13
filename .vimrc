@@ -103,7 +103,8 @@ set splitbelow
 set splitright
 
 " NERDTree Remaps
-let NERDTreeMapOpenExpl='\t'
+map <C-n> :NERDTreeFind<CR>
+map <C-m> :NERDTreeToggle<CR>
 
 " FZF Remaps
 nnoremap <silent> <c-p> :Files<CR>
