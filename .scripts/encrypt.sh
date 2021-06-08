@@ -2,11 +2,25 @@
 
 gpg --import ~/.gpg.key
 
-gpg --symmetric              \
-  --output ~/.gpg.key.secret \
-  ~/.gpg.key
+if [ ! -f ~/.gpg.key.secret ]
+then
+  gpg --symmetric              \
+    --output ~/.gpg.key.secret \
+    ~/.gpg.key
+fi
 
-gpg --encrypt                            \
-  --output /home/nick/.ssh/id_rsa.secret \
-  --recipient me@nick.exposed            \
-  /home/nick/.ssh/id_rsa
+if [ ! -f ~/.ssh/id_rsa.secret ]
+then
+  gpg --encrypt                   \
+    --output ~/.ssh/id_rsa.secret \
+    --recipient me@nick.exposed   \
+    ~/.ssh/id_rsa
+fi
+
+if [ ! -f ~/.ssh/config.secret ]
+then
+  gpg --encrypt                   \
+    --output ~/.ssh/config.secret \
+    --recipient me@nick.exposed   \
+    ~/.ssh/config
+fi
