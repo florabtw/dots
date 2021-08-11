@@ -3,34 +3,29 @@
 " Auto install if missing
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/bundle')
-Plug 'junegunn/vim-plug'
-Plug 'mattn/emmet-vim'
-Plug 'godlygeek/tabular'
-Plug 'Chiel92/vim-autoformat'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'kchmck/vim-coffee-script'
-Plug 'tpope/vim-sleuth'
-Plug 'prettier/vim-prettier'
-Plug 'derekwyatt/vim-scala'
-Plug 'scrooloose/nerdtree'
-Plug 'ntpeters/vim-better-whitespace'
+Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-plug'
+Plug 'leafgarland/typescript-vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'digitaltoad/vim-pug'
-Plug 'townk/vim-autoclose'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-commentary'
-Plug 'ervandew/supertab'
 Plug 'mileszs/ack.vim'
-Plug 'cespare/vim-toml'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier'
+Plug 'scrooloose/nerdtree'
+Plug 'townk/vim-autoclose'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'
 call plug#end()
 
 " Destroy arrow keys in insert mode
@@ -53,6 +48,9 @@ noremap <C-J> <C-W><C-J>
 noremap <C-K> <C-W><C-K>
 noremap <C-L> <C-W><C-L>
 
+" Leader key is SPACE
+let mapleader = " "
+
 " Make backspace work
 set backspace=2
 
@@ -63,10 +61,15 @@ set autoindent
 set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 " Wrapping and tabs.
-set tw=80 ts=4 sw=4 sta et sts=4 ai fo+=t
+set tw=80 ts=2 sw=2 sta et sts=2 ai fo+=t
 
 " Line numbers
 set number
+
+" Disable backup and swap files
+set nobackup
+set nowritebackup
+set noswapfile
 
 " PLEASE STOP BEEPING OMG
 set visualbell
@@ -95,9 +98,6 @@ au FileType * highlight WhitespaceEOL ctermbg=240 guibg=red
 " md means markdown
 au BufNewFile,BufReadPost *.md set filetype=markdown
 
-" JSX highlighting
-let g:jsx_ext_required=0
-
 " Panes should split to the right, or to the bottom
 set splitbelow
 set splitright
@@ -107,7 +107,28 @@ map <C-n> :NERDTreeFind<CR>
 map <C-m> :NERDTreeToggle<CR>
 
 " FZF Remaps
-nnoremap <silent> <c-p> :Files<CR>
+nnoremap <silent> <c-p> :GFiles<CR>
+
+" JS Import
+let g:js_file_import_use_fzf = 1
 
 " Gutentags
 let g:gutentags_cache_dir="~/.tags"
+
+" Prettier autoformat
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
+" CoC Configuration
+set encoding=utf-8
+set updatetime=300
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+
+nmap <leader>ca  <Plug>(coc-codeaction)
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
