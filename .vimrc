@@ -9,17 +9,19 @@ endif
 
 call plug#begin('~/.vim/bundle')
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'godlygeek/tabular'
-Plug 'hail2u/vim-css3-syntax'
+Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-plug'
 Plug 'leafgarland/typescript-vim'
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'liuchengxu/space-vim-theme'
 Plug 'mileszs/ack.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
@@ -89,10 +91,12 @@ au BufNewFile,BufRead *.scala set colorcolumn=130
 
 " set color scheme to solarized
 syntax on
-let g:solarized_termcolors=256
-set t_Co=256
+" let g:solarized_termcolors=256
+" set t_Co=256
 set background=dark
-colorscheme solarized
+" colorscheme palenight
+" colorscheme solarized
+colorscheme space_vim_theme
 
 " to keep whitespace highlighting on recognized file types
 au FileType * highlight WhitespaceEOL ctermbg=240 guibg=red
@@ -107,9 +111,15 @@ command! -nargs=0 Sw w !sudo tee % > /dev/null
 set splitbelow
 set splitright
 
+" Show signcolumn in number column
+set signcolumn=number
+
 " NERDTree Remaps
-map <C-n> :NERDTreeFind<CR>
-map <C-m> :NERDTreeToggle<CR>
+nnoremap <silent> <c-t> :NERDTreeToggle<CR>
+nnoremap <silent> <c-n> :NERDTreeFind<CR>
+
+" NERDTree Hide Signcolumn
+autocmd FileType nerdtree setlocal signcolumn=no
 
 " FZF Remaps
 nnoremap <silent> <c-p> :GFiles<CR>
@@ -117,36 +127,6 @@ nnoremap <silent> <c-p> :GFiles<CR>
 " JS Import
 let g:js_file_import_use_fzf = 1
 
-" Gutentags
-let g:gutentags_cache_dir="~/.tags"
-
 " Prettier autoformat
 let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
-
-" CoC Configuration
-set encoding=utf-8
-set updatetime=300
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-styled-components' ]
-
-nmap <leader>ca  <Plug>(coc-codeaction)
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" CoC Autocomplete
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
