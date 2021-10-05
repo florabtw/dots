@@ -128,5 +128,5 @@ nnoremap <silent> <c-p> :GFiles<CR>
 let g:js_file_import_use_fzf = 1
 
 " Prettier autoformat
-let g:prettier#autoformat = 0
+let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
