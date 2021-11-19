@@ -13,7 +13,10 @@
 [credential]
     helper = cache --timeout=10800
 [user]
-    name = Nick Pierson
-    email = me@nick.exposed
+    name = Flora Moon
+    email = hello@flora.cool
+	signingkey = 88D492802DE4D56D
 [push]
     default = current
+[commit]
+	gpgsign = true
