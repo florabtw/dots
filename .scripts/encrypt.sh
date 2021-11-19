@@ -11,7 +11,7 @@ if [ -f ~/.ssh/id_rsa ]
 then
   gpg --encrypt                   \
     --output ~/.ssh/id_rsa.secret \
-    --recipient me@nick.exposed   \
+    --recipient hello@flora.cool  \
     ~/.ssh/id_rsa
 fi
 
@@ -19,6 +19,6 @@ if [ -f ~/.ssh/config ]
 then
   gpg --encrypt                   \
     --output ~/.ssh/config.secret \
-    --recipient me@nick.exposed   \
+    --recipient hello@flora.cool  \
     ~/.ssh/config
 fi
