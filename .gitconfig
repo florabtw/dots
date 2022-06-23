@@ -15,8 +15,8 @@
 [user]
     name = Flora Moon
     email = hello@flora.cool
-	signingkey = 88D492802DE4D56D
+    signingkey = 88D492802DE4D56D
 [push]
     default = current
 [commit]
-	gpgsign = true
+    gpgsign = true
